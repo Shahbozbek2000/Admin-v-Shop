@@ -65,7 +65,7 @@ a{
     &-wrapper{
         @include d-ss;
         .card-chart{
-            flex-grow:1;
+            flex:1;
             max-width: 100%;
             min-width: 300px;
             margin: 10px;
