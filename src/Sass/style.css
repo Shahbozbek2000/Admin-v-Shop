@@ -49,6 +49,19 @@ a {
       -ms-flex-positive: 1;
           flex-grow: 1;
   margin: 10px;
+  color: #fff;
+}
+.card-part .card:nth-child(1) {
+  background-color: #f75d81;
+}
+.card-part .card:nth-child(2) {
+  background-color: rgba(125, 212, 32, 0.8);
+}
+.card-part .card:nth-child(3) {
+  background-color: #42a5fe;
+}
+.card-part .card:nth-child(4) {
+  background-color: #7267b9;
 }
 .card-part .card-wrapper {
   display: -webkit-box;
@@ -62,4 +75,35 @@ a {
           justify-content: space-between;
   padding: 10px;
   margin: 10px;
+}
+
+.chart-part-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.chart-part-wrapper .card-chart {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: 100%;
+  min-width: 300px;
+  margin: 10px;
+  padding: 10px;
+}
+@media (max-width: 775px) {
+  .chart-part-wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.books {
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

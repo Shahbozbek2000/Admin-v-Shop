@@ -30,7 +30,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-
+import Badge from '@material-ui/core/Badge';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -135,10 +135,14 @@ export default function MiniDrawer() {
               </div>
               <div className="items">
                 <IconButton style={{color:'#fff'}}>
-                    <MessageIcon/>
+                    <Badge badgeContent={4} color="secondary">
+                        <MessageIcon/>
+                    </Badge>
                 </IconButton>
                 <IconButton style={{color:'#fff'}}>
-                    <NotificationsActiveIcon />
+                    <Badge badgeContent={4} color="secondary">
+                        <NotificationsActiveIcon />
+                    </Badge>
                 </IconButton>
                 <IconButton style={{color:'#fff'}}>
                     <AccountCircleIcon />
