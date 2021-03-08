@@ -54,7 +54,7 @@ export function Editable(){
     {title:"O'chirish", field:'delete'},
   ]
   return(
-    <div>
+    <div className="table-data">
       <MaterialTable
         icons={tableIcons}
         data={data}

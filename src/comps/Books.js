@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '@material-ui/core/Card';
-import  {Editable}  from './Table';
+import {Editable} from './Table';
 import Charts from './Charts'
 import ChartLine from './ChartLine'
 
@@ -11,7 +11,7 @@ const Books = () => {
                 <Card className="card">
                     <div className="card-wrapper">
                         <div>
-                            <h3>Users</h3>
+                            <h3>Buyurtmalar</h3>
                             <p>Lorem ipsum dolor sit.</p>
                         </div>
                         <div>
@@ -22,7 +22,7 @@ const Books = () => {
                 <Card className="card">
                     <div className="card-wrapper">
                         <div>
-                            <h3>Users</h3>
+                            <h3>Foydalanuvchilar</h3>
                             <p>Lorem ipsum dolor sit.</p>
                         </div>
                         <div>
@@ -33,7 +33,7 @@ const Books = () => {
                 <Card className="card">
                     <div className="card-wrapper">
                         <div>
-                            <h3>Users</h3>
+                            <h3>Xabarlar</h3>
                             <p>Lorem ipsum dolor sit.</p>
                         </div>
                         <div>
@@ -44,7 +44,7 @@ const Books = () => {
                 <Card className="card">
                     <div className="card-wrapper">
                         <div>
-                            <h3>Users</h3>
+                            <h3>Mahsulotlar</h3>
                             <p>Lorem ipsum dolor sit.</p>
                         </div>
                         <div>

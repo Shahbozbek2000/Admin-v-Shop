@@ -1,9 +1,9 @@
 import React from 'react'
-
+import {Editable} from './Table'
 const SoldPro = () => {
     return (
         <div>
-            SoldProducts
+            <Editable/>
         </div>
     )
 }

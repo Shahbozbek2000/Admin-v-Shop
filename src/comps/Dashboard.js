@@ -23,14 +23,18 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ChatIcon from '@material-ui/icons/Chat';
+import PeopleIcon from '@material-ui/icons/People';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import MessageIcon from '@material-ui/icons/Message';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Badge from '@material-ui/core/Badge';
+import AdminPage from './AdminPage';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -134,19 +138,25 @@ export default function MiniDrawer() {
                   <h2>Admin</h2>
               </div>
               <div className="items">
-                <IconButton style={{color:'#fff'}}>
-                    <Badge badgeContent={4} color="secondary">
-                        <MessageIcon/>
-                    </Badge>
-                </IconButton>
-                <IconButton style={{color:'#fff'}}>
-                    <Badge badgeContent={4} color="secondary">
-                        <NotificationsActiveIcon />
-                    </Badge>
-                </IconButton>
-                <IconButton style={{color:'#fff'}}>
-                    <AccountCircleIcon />
-                </IconButton>
+                <NavLink to="/Xabarlar">
+                  <IconButton style={{color:'#fff'}}>
+                      <Badge badgeContent={4} color="secondary">
+                          <MessageIcon/>
+                      </Badge>
+                  </IconButton>
+                </NavLink>
+                <NavLink to="/">
+                  <IconButton style={{color:'#fff'}}>
+                      <Badge badgeContent={4} color="secondary">
+                          <NotificationsActiveIcon />
+                      </Badge>
+                  </IconButton>
+                </NavLink>
+                <NavLink to="/personal">
+                  <IconButton style={{color:'#fff'}}>
+                      <AccountCircleIcon />
+                  </IconButton>
+                </NavLink>
               </div>
           </div>
         </Toolbar>
@@ -174,7 +184,14 @@ export default function MiniDrawer() {
           {['Buyurtmalar', 'Foydalanuvchilar', 'Tovarlar', 'Xabarlar'].map((text, index) => (
             <NavLink to={ index===0 ? `/` : `${text}`} key={index} >
                 <ListItem button >
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                    <ListItemIcon>
+                      {
+                        index === 0 ? <NotificationsActiveIcon /> : 
+                        (index === 1 ? <PeopleIcon/>:
+                          (index === 2 ? <ShoppingCartIcon/>:
+                            (index === 3 ? <ChatIcon/>:null)))
+                      }
+                    </ListItemIcon>
                     <ListItemText primary={text} />
                 </ListItem>
             </NavLink>
@@ -185,7 +202,7 @@ export default function MiniDrawer() {
           {['Sotilgan tovarlar', 'Chiqish'].map((text, index) => (
             <NavLink to={`${text}`} key={index} >
                 <ListItem button >
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                    <ListItemIcon>{index % 2 === 0 ? <LocalOfferIcon /> : <ExitToAppIcon />}</ListItemIcon>
                     <ListItemText primary={text} />
                 </ListItem>
             </NavLink>
@@ -209,6 +226,9 @@ export default function MiniDrawer() {
             </Route>
             <Route path='/Sotilgan tovarlar'>
                 <SoldPro/>
+            </Route>
+            <Route path='/personal'>
+                <AdminPage/>
             </Route>
             <Route path='/Chiqish'>
                 <Exit/>

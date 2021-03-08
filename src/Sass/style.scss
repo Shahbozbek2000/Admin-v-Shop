@@ -44,16 +44,16 @@ a{
         color: #fff;
     }
     .card:nth-child(1){
-        background-color: rgba(247,93,129);
+        background-color: rgb(247,93,129);
     }
     .card:nth-child(2){
         background-color: rgba(125,212,32,0.8);
     }
     .card:nth-child(3){
-        background-color: rgba(66,165,254);
+        background-color: rgb(66,165,254);
     }
     .card:nth-child(4){
-        background-color: rgba(114,103,185);
+        background-color: rgb(114,103,185);
     }
     .card-wrapper{
         @include d-sb;
@@ -81,4 +81,8 @@ a{
 
 .books{
     margin-top: 10px;
+}
+.table-data{
+    width: 98.5%;
+    margin: 10px auto;
 }
