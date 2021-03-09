@@ -46,12 +46,12 @@ export default function Editable(props) {
             { title: 'Familiya', field: 'surname'},
             { title: 'Parol', field: 'password', type: 'numeric' },
             { title: 'Raqam', field: 'phone', type: 'numeric' },
-            { title: 'Button', field: 'button', type: 'button' },
+            { title: 'Button', field: 'button', type: 'button' }
         ]
     );
   
     const [data, setData] = useState([
-      { name: 'Mehmet', surname: 'Baran', password: 1987, phone: 998993455214, button: <button>ab</button> },
+      { name: 'Mehmet', surname: 'Baran', password: 1987, phone: 998993455214, button: <button>ab</button>},
       { name: 'Zerya Betül', surname: 'Baran', password: 2017, phone: 998993455214, button: <button>ab</button> },
     ]);
   
@@ -63,14 +63,14 @@ export default function Editable(props) {
         icons={tableIcons}
         responsive={true}
         editable={{
-          onRowAdd: newData =>
-            new Promise((resolve, reject) => {
-              setTimeout(() => {
-                setData([...data, newData]);
+          // onRowAdd: newData =>
+          //   new Promise((resolve, reject) => {
+          //     setTimeout(() => {
+          //       setData([...data, newData]);
                 
-                resolve();
-              }, 1000)
-            }),
+          //       resolve();
+          //     }, 1000)
+          //   }),
           onRowUpdate: (newData, oldData) =>
             new Promise((resolve, reject) => {
               setTimeout(() => {
