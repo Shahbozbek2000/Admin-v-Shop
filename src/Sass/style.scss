@@ -79,6 +79,41 @@ a{
     }
 }
 
+.admin-product{
+
+    &-edit{
+        margin-bottom: 20px;
+        &-add{
+            display:flex;
+            align-items: top;
+            justify-content:space-between;
+            padding: 20px;
+            div{
+                flex-grow: 1;
+            }
+            input{
+                padding: 0;
+            }
+            .textInput{
+                width: 80%;
+            }
+            .admin-add-img{
+                @include d-sb;
+                flex-direction: column;
+                width: 100%;
+                margin: 10px 0;
+                input{
+                    margin: 5px 0;
+                }
+            }
+            .btn-admin-add{
+                width: 100%;
+                padding: 4px 20%;
+            }
+        }
+    }
+}
+
 .books{
     margin-top: 10px;
 }

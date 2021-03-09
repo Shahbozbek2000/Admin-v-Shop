@@ -2,7 +2,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: "Poppins", sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -26,7 +26,6 @@ a {
           justify-content: space-between;
   width: 100%;
 }
-
 .app-bar-items h2 {
   font-weight: 500;
 }
@@ -45,7 +44,6 @@ a {
   width: 100%;
   height: auto;
 }
-
 .card-part .card {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -53,23 +51,18 @@ a {
   margin: 10px;
   color: #fff;
 }
-
 .card-part .card:nth-child(1) {
   background-color: #f75d81;
 }
-
 .card-part .card:nth-child(2) {
   background-color: rgba(125, 212, 32, 0.8);
 }
-
 .card-part .card:nth-child(3) {
   background-color: #42a5fe;
 }
-
 .card-part .card:nth-child(4) {
   background-color: #7267b9;
 }
-
 .card-part .card-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,7 +88,6 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
 }
-
 .chart-part-wrapper .card-chart {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -105,12 +97,62 @@ a {
   margin: 10px;
   padding: 10px;
 }
-
 @media (max-width: 775px) {
   .chart-part-wrapper {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+}
+
+.admin-product-edit {
+  margin-bottom: 20px;
+}
+.admin-product-edit-add {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px;
+}
+.admin-product-edit-add div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.admin-product-edit-add input {
+  padding: 0;
+}
+.admin-product-edit-add .textInput {
+  width: 80%;
+}
+.admin-product-edit-add .admin-add-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin: 10px 0;
+}
+.admin-product-edit-add .admin-add-img input {
+  margin: 5px 0;
+}
+.admin-product-edit-add .btn-admin-add {
+  width: 100%;
+  padding: 4px 20%;
 }
 
 .books {
@@ -120,5 +162,4 @@ a {
 .table-data {
   width: 98.5%;
   margin: 10px auto;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
