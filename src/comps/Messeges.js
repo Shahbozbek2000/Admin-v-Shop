@@ -41,27 +41,10 @@ const Messeges = () => {
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
     };
-    const [image, setImage] = useState({})
-    console.log(image)
-    // const [url, setUrl] = useState()
-    const sendDataChange =()=>{
-        const reader = new FileReader();
-        reader.readAsDataURL(image)
-        console.log(reader.readAsDataURL(image))
-        // setUrl(reader.readAsDataURL(image))
-        // const fd = new FormData()
-        // fd.append('image', image, image.name)
-        // axios.post('https://api.cloudinary.com/v1_1/abcde/upload', fd)
-        //     .then(res=>console.log(res))
-        //     .catch(err=>console.log(err))
-    }
-
+    
     return (
         <div className="messege-wrapper">
             <h2>Xabarlar</h2>
-            <input type="file" onChange={(e)=>setImage(e.target.files[0])}/>
-            <button onClick={sendDataChange}>Send</button>
-            {/* <img src={} alt="sda"/> */}
             <br/>
             <div className={classes.root}>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
