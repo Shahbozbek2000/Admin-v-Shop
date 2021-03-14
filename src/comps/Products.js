@@ -27,6 +27,9 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn'
+import UploadImage from './UploadImg';
+import AddIcon from "@material-ui/icons/AddAlarm";
+import IconButton from "@material-ui/core/IconButton";
 const Products = () => {
 
     const tableIcons = {
@@ -52,16 +55,35 @@ const Products = () => {
   
     const [columns, setColumns] = useState(
         [
-            { title: 'Ism', field: 'name' },
-            { title: 'Familiya', field: 'surname'},
-            { title: 'Parol', field: 'password', type: 'numeric' },
-            { title: 'Raqam', field: 'phone', type: 'numeric' },
+            { title: 'Mahsulot', field: 'product', width:'30%'},
+            { title: 'Malumot', field: 'inform', width:'20%'},
+            { title: 'Narx', field: 'cost', type: 'numeric',width:'10%' },
+            { title: 'Kategoriya', field: 'category',width:'30%'},
+            { title: 'Rasm', field: 'imageUrl', render: rowData => <img src={rowData.imageUrl} alt="asd"/> },
+            {
+                title: "Custom Add",
+                field: "internal_action",
+                width:'10%',
+                editable: false,
+                render: (rowData) =>
+                    rowData && (
+                    <IconButton
+                        color="secondary"
+                        onClick={handleClick}
+                    >
+                        <Edit />
+                    </IconButton>
+                )
+                
+            },
         ]
     );
-  
     const [data, setData] = useState([
-      { name: 'Mehmet', surname: 'Baran', password: 1987, phone: 998993455214},
-      { name: 'Zerya Betül', surname: 'Baran', password: 2017, phone: 998993455214 },
+      { product: 'Mehmet', inform: 'Baran', cost: 1987, category: 998993455214, imageUrl:'https://picsum.photos/200/100'},
+      { product: 'Mehmet', inform: 'Baran', cost: 1987, category: 998993455214, imageUrl:'https://picsum.photos/200/100'},
+      { product: 'Mehmet', inform: 'Baran', cost: 1987, category: 998993455214, imageUrl:'https://picsum.photos/200/100'},
+      { product: 'Mehmet', inform: 'Baran', cost: 1987, category: 998993455214, imageUrl:'https://picsum.photos/200/100'},
+    
     ]);
   
 
@@ -91,7 +113,7 @@ const Products = () => {
                 </ListItem>
                 <Collapse in={openAdd} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                    <ListItem button >
+                    <ListItem >
                             <div className="admin-product-edit">
                                 <Card className="admin-product-edit-add">
                                     <div>
@@ -99,15 +121,6 @@ const Products = () => {
                                         <TextField className="textInput" label="Ma'lumot"/>
                                         <TextField className="textInput" label="Narx"/>
                                         <TextField className="textInput" label="Kategoriya"/>
-                                    </div>
-                                    <div>
-                                        <span className="admin-add-img">
-                                            <img 
-                                                src="https://picsum.photos/400/200"
-                                                alt="sads"
-                                            />
-                                            <input type="file"/>
-                                        </span>
                                         <Button
                                             className="btn-admin-add" 
                                             variant="contained" 
@@ -115,6 +128,12 @@ const Products = () => {
                                         >
                                             Add
                                         </Button>
+                                    </div>
+                                    <div>
+                                        <span className="admin-add-img">
+                                            <UploadImage/>
+                                        </span>
+
                                     </div>
                                 </Card>
                             </div>
@@ -132,7 +151,7 @@ const Products = () => {
                 </ListItem>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                    <ListItem button >
+                    <ListItem>
                             <div className="admin-product-edit">
                                 <Card className="admin-product-edit-add">
                                     <div>
@@ -140,15 +159,6 @@ const Products = () => {
                                         <TextField className="textInput" label="Ma'lumot"/>
                                         <TextField className="textInput" label="Narx"/>
                                         <TextField className="textInput" label="Kategoriya"/>
-                                    </div>
-                                    <div>
-                                        <span className="admin-add-img">
-                                            <img 
-                                                src="https://picsum.photos/400/200"
-                                                alt="sads"
-                                            />
-                                            <input type="file"/>
-                                        </span>
                                         <Button
                                             className="btn-admin-add" 
                                             variant="contained" 
@@ -156,6 +166,12 @@ const Products = () => {
                                         >
                                             Yangilash
                                         </Button>
+                                    </div>
+                                    <div>
+                                        <span className="admin-add-img">
+                                            <UploadImage/>
+                                        </span>
+                                        
                                     </div>
                                 </Card>
                             </div>

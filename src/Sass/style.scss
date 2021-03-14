@@ -80,15 +80,16 @@ a{
 }
 
 .admin-product{
-
+    
     &-edit{
+        width: 100%;
         margin-bottom: 20px;
         &-add{
             display:flex;
-            align-items: top;
+            align-items: center;
             justify-content:space-between;
             padding: 20px;
-            div{
+            div:nth-child(1){
                 flex-grow: 1;
             }
             input{
@@ -97,18 +98,13 @@ a{
             .textInput{
                 width: 80%;
             }
-            .admin-add-img{
-                @include d-sb;
-                flex-direction: column;
-                width: 100%;
-                margin: 10px 0;
-                input{
-                    margin: 5px 0;
-                }
-            }
             .btn-admin-add{
-                width: 100%;
-                padding: 4px 20%;
+                width: 100px;
+                margin-top: 20px;
+                padding: 4px 15%;
+            }
+            .uploadPictureContainer{
+                max-width: 450px;
             }
         }
     }
@@ -120,4 +116,31 @@ a{
 .table-data{
     width: 98.5%;
     margin: 10px auto;
+}
+
+//ADMIN PERSONAL PAGE
+.tabPage{
+    line-height:2.2rem;
+}
+.tab-first{
+    text-align: center;
+    div{
+        display: inline-block;
+        text-align: left;
+    }
+}
+.tab-second{
+    @include d-ss;
+    flex-direction: column;
+
+    #outlined-basic{
+        width: 400px;
+        padding: 0;
+    }
+    .btn-tab{
+        margin-top: 20px;
+    }
+}
+.MuiBox-root-107{
+    background-color:transparent !important;
 }
