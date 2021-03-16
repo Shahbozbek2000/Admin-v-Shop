@@ -1,9 +1,10 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import clsx from 'clsx';
 import {BrowserRouter as 
   Route,
   NavLink,
-  Switch
+  Switch,
+  useLocation
 } from 'react-router-dom'
 import Books from './Books'
 import Products from './Products'
@@ -51,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
+  appBarAuth: {
+    display: 'none',
+  },
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
@@ -69,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
+  },
+  drawerAuth:{
+    display: 'none',
   },
   drawerOpen: {
     width: drawerWidth,
@@ -108,6 +115,11 @@ export default function MiniDrawer() {
   const [open, setOpen] = React.useState(false);
   const [isAuth, setIsAuth] = useState(false)
 
+  let location = useLocation()
+  useEffect(() => {
+    console.log(location)
+  },[])
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -115,14 +127,17 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        className={clsx(classes.appBar, {
-          [classes.appBarShift]: open,
+        className={
+          location.pathname==='/' ? 
+            classes.appBarAuth :
+            clsx(classes.appBar, {
+            [classes.appBarShift]: open,
         })}
       >
         <Toolbar>
@@ -167,9 +182,12 @@ export default function MiniDrawer() {
       </AppBar>
       <Drawer
         variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
+        className={
+          location.pathname === '/' ? 
+            classes.drawerAuth :
+            clsx(classes.drawer, {
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
         })}
         classes={{
           paper: clsx({
@@ -229,20 +247,3 @@ export default function MiniDrawer() {
     </div>
   );
 }
-
-
-
-
-
-{/* <Route path='/Tovarlar'>
-                <Products/>
-            </Route>
-            <Route path='/Xabarlar'>
-                <Messeges/>
-            </Route>
-            <Route path='/Sotilgan tovarlar'>
-                <SoldPro/>
-            </Route>
-            <Route path='/personal'>
-                <AdminPage/>
-            </Route> */}

@@ -144,3 +144,29 @@ a{
 .MuiBox-root-107{
     background-color:transparent !important;
 }
+.container-login{
+    text-align:center;
+
+    .login{
+        @include d-ss;
+        width: 100%;
+        height: 60vh;
+
+        form{
+            width: 400px;
+            min-width: 300px;
+            
+            input{
+                margin: 10px 0;
+            }
+
+            p{
+                color:red;
+            }
+
+            .btn-auth{
+                margin-top: 20px;
+            }
+        }
+    }
+}
