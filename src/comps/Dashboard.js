@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import clsx from 'clsx';
 import {BrowserRouter as 
   Route,
@@ -11,6 +11,7 @@ import Messeges from './Messeges'
 import Users from './Users'
 import SoldPro from './SoldPro'
 import Exit from './Exit'
+import ProtectedRoute from './ProtectedRoute'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -35,6 +36,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Badge from '@material-ui/core/Badge';
 import AdminPage from './AdminPage';
+
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -103,6 +106,7 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [isAuth, setIsAuth] = useState(false)
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -145,7 +149,7 @@ export default function MiniDrawer() {
                       </Badge>
                   </IconButton>
                 </NavLink>
-                <NavLink to="/">
+                <NavLink to="/Buyurtmalar">
                   <IconButton style={{color:'#fff'}}>
                       <Badge badgeContent={4} color="secondary">
                           <NotificationsActiveIcon />
@@ -182,7 +186,8 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Buyurtmalar', 'Foydalanuvchilar', 'Tovarlar', 'Xabarlar'].map((text, index) => (
-            <NavLink to={ index===0 ? `/` : `${text}`} key={index} >
+            <NavLink to={ `${text}`} key={index} >
+              {/* index===0 ? `/` :  */}
                 <ListItem button >
                     <ListItemIcon>
                       {
@@ -199,8 +204,8 @@ export default function MiniDrawer() {
         </List>
         <Divider />
         <List>
-          {['Sotilgan tovarlar', 'Chiqish'].map((text, index) => (
-            <NavLink to={`${text}`} key={index} >
+          {['Sotilgan tovarlar', 'Auth'].map((text, index) => (
+            <NavLink to={ index === 0 ? `${text}` : '/'} key={index} >
                 <ListItem button >
                     <ListItemIcon>{index % 2 === 0 ? <LocalOfferIcon /> : <ExitToAppIcon />}</ListItemIcon>
                     <ListItemText primary={text} />
@@ -212,13 +217,24 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-            <Route exact path='/'>
-                <Books/>
-            </Route>
-            <Route path='/Foydalanuvchilar'>
-                <Users/>
-            </Route>
-            <Route path='/Tovarlar'>
+            <Route exact path='/'><Exit/></Route>
+            <ProtectedRoute path='/Buyurtmalar'  component={Books} isAuth={isAuth}/>
+            <ProtectedRoute path='/Foydalanuvchilar'  component={Users} isAuth={isAuth}/>
+            <ProtectedRoute path='/Tovarlar'  component={Products} isAuth={isAuth}/>
+            <ProtectedRoute path='/Xabarlar'  component={Messeges} isAuth={isAuth}/>
+            <ProtectedRoute path='/Sotilgan tovarlar'  component={SoldPro} isAuth={isAuth}/>
+            <ProtectedRoute path='/personal'  component={AdminPage} isAuth={isAuth}/>
+        </Switch>
+      </main>
+    </div>
+  );
+}
+
+
+
+
+
+{/* <Route path='/Tovarlar'>
                 <Products/>
             </Route>
             <Route path='/Xabarlar'>
@@ -229,12 +245,4 @@ export default function MiniDrawer() {
             </Route>
             <Route path='/personal'>
                 <AdminPage/>
-            </Route>
-            <Route path='/Chiqish'>
-                <Exit/>
-            </Route>
-        </Switch>
-      </main>
-    </div>
-  );
-}
+            </Route> */}

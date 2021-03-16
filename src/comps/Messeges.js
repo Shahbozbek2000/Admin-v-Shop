@@ -6,6 +6,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import axios from 'axios'
+import {withRouter} from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -119,4 +120,4 @@ const Messeges = () => {
     )
 }
 
-export default Messeges
+export default withRouter(Messeges)

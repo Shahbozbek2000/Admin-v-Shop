@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import {Editable} from './Table';
 import Charts from './Charts'
 import ChartLine from './ChartLine'
+import {withRouter} from 'react-router-dom'
 
 const Books = () => {
     return (
@@ -71,4 +72,4 @@ const Books = () => {
     )
 }
 
-export default Books
+export default withRouter(Books)

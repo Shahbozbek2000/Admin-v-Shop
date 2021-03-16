@@ -1,5 +1,6 @@
 import React from 'react'
 import {Editable} from './Table'
+import {withRouter} from 'react-router-dom'
 const SoldPro = () => {
     return (
         <div>
@@ -8,4 +9,4 @@ const SoldPro = () => {
     )
 }
 
-export default SoldPro
+export default withRouter(SoldPro)

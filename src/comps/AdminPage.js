@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import {withRouter} from 'react-router-dom'
 // import UploadImage from './UploadImg';
 
 function TabPanel(props) {
@@ -53,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FullWidthTabs() {
+function FullWidthTabs() {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -121,3 +122,4 @@ export default function FullWidthTabs() {
     </div>
   );
 }
+export default withRouter(FullWidthTabs)

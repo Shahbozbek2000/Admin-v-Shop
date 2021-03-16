@@ -28,8 +28,9 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn'
 import UploadImage from './UploadImg';
-import AddIcon from "@material-ui/icons/AddAlarm";
 import IconButton from "@material-ui/core/IconButton";
+import {withRouter} from 'react-router-dom'
+
 const Products = () => {
 
     const tableIcons = {
@@ -219,9 +220,8 @@ const Products = () => {
                     }),
                 }}
             />
-            {/* <Editable productInfo={productInfo}/> */}
         </div>
     )
 }
 
-export default Products
+export default withRouter(Products)
