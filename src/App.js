@@ -1,11 +1,14 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom'
 import Dashboard from './comps/Dashboard';
+import Store from './Store/Store'
 function App() {
   return (
-    <Router>
-      <Dashboard/>
-    </Router>
+    <Store>
+      <Router>
+        <Dashboard/>
+      </Router>
+    </Store>
   );
 }
 
