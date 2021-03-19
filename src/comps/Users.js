@@ -1,24 +1,29 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, useContext} from 'react'
+import axios from 'axios'
 import { forwardRef } from 'react';
 import MaterialTable from 'material-table'
-import AddBox from '@material-ui/icons/AddBox';
-import ArrowDownward from '@material-ui/icons/ArrowDownward';
+import Edit from '@material-ui/icons/Edit';
 import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
+import AddBox from '@material-ui/icons/AddBox';
+import Remove from '@material-ui/icons/Remove';
+import Search from '@material-ui/icons/Search';
+import SaveAlt from '@material-ui/icons/SaveAlt';
+import LastPage from '@material-ui/icons/LastPage';
+import FirstPage from '@material-ui/icons/FirstPage';
+import ViewColumn from '@material-ui/icons/ViewColumn'
+import FilterList from '@material-ui/icons/FilterList';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
-import Clear from '@material-ui/icons/Clear';
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
-import Edit from '@material-ui/icons/Edit';
-import FilterList from '@material-ui/icons/FilterList';
-import FirstPage from '@material-ui/icons/FirstPage';
-import LastPage from '@material-ui/icons/LastPage';
-import Remove from '@material-ui/icons/Remove';
-import SaveAlt from '@material-ui/icons/SaveAlt';
-import Search from '@material-ui/icons/Search';
-import ViewColumn from '@material-ui/icons/ViewColumn'
+import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import {withRouter} from 'react-router-dom'
+import {StoreG} from '../Store/Store'
 
 const Users = () => {
+
+    const {userData} = useContext(StoreG)
+
     const productInfo={
         name:'Xaridorlar'
     }
@@ -51,11 +56,20 @@ const Users = () => {
             { title: 'Raqam', field: 'phone', type: 'numeric' },
         ]
     );
-  
-    const [data, setData] = useState([
-      { name: 'Mehmet', surname: 'Baran', password: 1987, phone: 998993455214},
-      { name: 'Zerya Betül', surname: 'Baran', password: 2017, phone: 998993455214 },
-    ]);
+    const token = 'aksdfkaklALKJDlhfg'
+    const [data, setData] = useState(userData);
+    useEffect(() =>{
+        axios.post('https://jsonplaceholder.typicode.com/posts',
+            {malumot:data},
+            {
+                headers:{
+                    'Authorization': `Basic ${token}`
+                }
+            }
+        )
+        .then(response =>console.log(response))
+        .catch(err =>console.log(err))
+    },[data])
   
     return (
         <div>
